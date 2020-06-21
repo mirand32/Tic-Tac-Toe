@@ -4,3 +4,135 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
+body{
+    background: #f4d6cc;
+}
+
+h1{
+    text-align: center;
+    font-size: 50px;
+}
+
+.xMarker{
+    background: url(x.svg);
+}
+
+.oMarker{
+    background: url(o.svg);
+}
+
+.square{
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.square:nth-of-type(3n){
+    border-right: none;
+}
+.square:nth-of-type(7),
+.square:nth-of-type(8),
+.square:nth-of-type(9){
+    border-bottom: none;
+}
+
+.gameboard{
+    padding: 5%;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0;
+    grid-auto-rows: 125px;
+}
+
+
+.winnerBanner{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 60px;
+    color: white;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 40px;
+    text-transform: capitalize;
+    background: linear-gradient(#FF3E3A, #8ACDEA);
+}
+
+.displayBanner{
+    display: initial;
+}
+
+form {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: rgba(255,255,255,0.8);
+    padding: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-around;
+}
+
+form > div{
+    text-align: center;
+    padding: 10px;
+}
+
+form input{
+    width: 100%;
+}
+
+.form--buttons{
+    grid-column: span 2;
+    display: flex;
+    justify-content: space-around;
+}
+
+form button{
+    background: #FF3E3A;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+}
+
+
+.scoreboard{
+    display: grid;
+    text-transform: uppercase;
+    font-size: 20px;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    text-align: center;
+}
+
+.hidden{
+    display: none;
+}
+
+@media screen and (max-width : 900px){
+    form div{
+        grid-column: 1 / -1;
+    }
+}
+@media screen and (max-width : 650px){
+    .gameboard{
+        grid-auto-rows: 125px;
+    }
+    form{
+        padding: 10px;
+    }
+    .form--buttons{
+        flex-direction: column;
+    }
+    form button{
+        padding: 5px;
+    }
+}
